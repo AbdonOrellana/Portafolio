@@ -508,6 +508,13 @@
         <button class="modal-close-btn" aria-label="Cerrar modal" onclick="closeProjectModal()">
             <i class="fas fa-times"></i>
         </button>
+        
+        <button class="modal-nav-btn modal-prev-btn" aria-label="Anterior" onclick="navigateModal(-1, event)">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="modal-nav-btn modal-next-btn" aria-label="Siguiente" onclick="navigateModal(1, event)">
+            <i class="fas fa-chevron-right"></i>
+        </button>
         <div class="modal-content-wrapper">
             <img id="modal-image" src="" alt="Proyecto" class="modal-bg-image" />
             <div class="modal-info-overlay">
@@ -881,6 +888,29 @@
             
             // Prevent body scroll
             document.body.style.overflow = 'hidden';
+        }
+
+
+        function navigateModal(direction, event) {
+            if (event) {
+                event.stopPropagation();
+            }
+            
+            if (!currentModalCard) return;
+            
+            const allCards = Array.from(document.querySelectorAll('.carousel-track .project-card'));
+            let currentIndex = allCards.indexOf(currentModalCard);
+            
+            if (currentIndex === -1) return;
+            
+            let nextIndex = currentIndex + direction;
+            
+            // Loop around
+            if (nextIndex < 0) nextIndex = allCards.length - 1;
+            if (nextIndex >= allCards.length) nextIndex = 0;
+            
+            // Re-open with new card
+            openProjectModal(allCards[nextIndex], null);
         }
 
         function closeProjectModal() {

@@ -1812,3 +1812,37 @@ html {
 .modal-info-overlay .project-links {
     justify-content: flex-start;
 }
+
+/* Modal Navigation Buttons */
+.modal-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(10, 14, 26, 0.6);
+    border: 1px solid var(--glass-border);
+    color: white;
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10001;
+    backdrop-filter: blur(5px);
+    transition: var(--transition);
+}
+
+.modal-nav-btn:hover {
+    background: var(--accent-primary);
+    box-shadow: var(--shadow-glow);
+}
+
+.modal-prev-btn { left: 20px; }
+.modal-next-btn { right: 20px; }
+
+@media (max-width: 768px) {
+    .modal-prev-btn { left: 10px; width: 40px; height: 40px; font-size: 1.2rem; }
+    .modal-next-btn { right: 10px; width: 40px; height: 40px; font-size: 1.2rem; }
+}
