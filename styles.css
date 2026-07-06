@@ -1646,7 +1646,7 @@ html {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem 0;
+    padding: 2rem 0 6rem 0;
 }
 
 .carousel-3d-scene {
@@ -1801,7 +1801,9 @@ html {
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-top: 1.5rem;
+    margin-top: 6rem; /* Push dots far down to clear the 3D projection */
+    position: relative;
+    z-index: 10;
 }
 
 .carousel-3d-dot {
