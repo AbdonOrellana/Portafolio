@@ -895,10 +895,12 @@
 
             ring.style.transform = 'rotateY(' + rotation + 'deg)';
 
+            const normalizedCurrent = ((currentIndex % totalCards) + totalCards) % totalCards;
+
             cards.forEach((card, i) => {
                 card.classList.remove('active-card', 'adjacent-card', 'far-card');
 
-                let diff = i - currentIndex;
+                let diff = i - normalizedCurrent;
                 if (diff > totalCards / 2) diff -= totalCards;
                 if (diff < -totalCards / 2) diff += totalCards;
 
@@ -915,7 +917,7 @@
 
             const dots = document.querySelectorAll('.carousel-3d-dot');
             dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === currentIndex);
+                dot.classList.toggle('active', i === normalizedCurrent);
             });
         }
 
@@ -923,15 +925,22 @@
             if (carousel3DState.isAnimating) return;
             carousel3DState.isAnimating = true;
 
-            const n = carousel3DState.totalCards;
-            carousel3DState.currentIndex = ((carousel3DState.currentIndex + direction) % n + n) % n;
+            carousel3DState.currentIndex += direction;
             updateCarousel3D();
 
             setTimeout(function() { carousel3DState.isAnimating = false; }, 600);
         }
 
         function goToCard3D(index) {
-            carousel3DState.currentIndex = index;
+            const n = carousel3DState.totalCards;
+            const currentNormalized = ((carousel3DState.currentIndex % n) + n) % n;
+            let diff = index - currentNormalized;
+            
+            // Encuentra el camino más corto
+            if (diff > n / 2) diff -= n;
+            if (diff < -n / 2) diff += n;
+            
+            carousel3DState.currentIndex += diff;
             updateCarousel3D();
         }
 
