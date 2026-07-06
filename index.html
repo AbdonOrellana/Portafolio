@@ -520,8 +520,10 @@
         <button class="modal-nav-btn modal-next-btn" aria-label="Siguiente" onclick="navigateModal(1, event)">
             <i class="fas fa-chevron-right"></i>
         </button>
+        <div class="modal-counter" id="modal-counter">1 / 5</div>
         <div class="modal-content-wrapper">
             <img id="modal-image" src="" alt="Proyecto" class="modal-bg-image" />
+            <img id="modal-image-prev" src="" alt="" class="modal-bg-image modal-img-outgoing" />
             <div class="modal-info-overlay">
                 <h3 class="modal-title" id="modal-title"></h3>
                 <p class="modal-description" id="modal-desc"></p>
@@ -965,9 +967,10 @@
         });
 
         // ============================================
-        // MODAL LOGIC
+        // MODAL LOGIC — Cinematic Transitions
         // ============================================
         let currentModalIndex = 0;
+        let isModalTransitioning = false;
 
         function openProjectModal(card, event) {
             if (event && event.target.closest('a')) return;
@@ -984,11 +987,18 @@
             var techStackHTML = card.querySelector('.tech-stack').innerHTML;
             var linksHTML = card.querySelector('.project-links').innerHTML;
 
-            document.getElementById('modal-image').src = imgSrc;
+            var mainImg = document.getElementById('modal-image');
+            mainImg.src = imgSrc;
+            mainImg.className = 'modal-bg-image';
+
             document.getElementById('modal-title').textContent = title;
             document.getElementById('modal-desc').textContent = desc;
             document.getElementById('modal-tech').innerHTML = techStackHTML;
             document.getElementById('modal-links').innerHTML = linksHTML;
+
+            // Update counter
+            var counter = document.getElementById('modal-counter');
+            if (counter) counter.textContent = (currentModalIndex + 1) + ' / ' + carousel3DState.totalCards;
 
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -996,13 +1006,67 @@
 
         function navigateModal(direction, event) {
             if (event) event.stopPropagation();
+            if (isModalTransitioning) return;
 
             var allCards = carousel3DState.cards;
             if (!allCards.length) return;
 
+            isModalTransitioning = true;
+
+            var mainImg = document.getElementById('modal-image');
+            var prevImg = document.getElementById('modal-image-prev');
+            var infoOverlay = document.querySelector('.modal-info-overlay');
+
+            // 1. Copy current image to the "outgoing" layer
+            prevImg.src = mainImg.src;
+            prevImg.className = 'modal-bg-image modal-img-outgoing';
+
+            // 2. Trigger outgoing animation (direction-aware)
+            if (direction > 0) {
+                prevImg.classList.add('exit-to-left');
+            } else {
+                prevImg.classList.add('exit-to-right');
+            }
+
+            // 3. Animate info overlay out
+            infoOverlay.classList.add('info-transitioning');
+
+            // 4. Compute next index
             var n = allCards.length;
             currentModalIndex = ((currentModalIndex + direction) % n + n) % n;
-            openProjectModal(allCards[currentModalIndex], null);
+            var card = allCards[currentModalIndex];
+
+            // 5. Load new data onto the main image (hidden initially)
+            var newSrc = card.querySelector('.project-image img').getAttribute('src');
+            mainImg.src = newSrc;
+
+            // Apply entrance animation
+            if (direction > 0) {
+                mainImg.className = 'modal-bg-image enter-from-right';
+            } else {
+                mainImg.className = 'modal-bg-image enter-from-left';
+            }
+
+            // 6. Update text data after a short delay (synced with image transition)
+            setTimeout(function() {
+                document.getElementById('modal-title').textContent = card.querySelector('.project-title').textContent;
+                document.getElementById('modal-desc').textContent = card.querySelector('.project-description').textContent;
+                document.getElementById('modal-tech').innerHTML = card.querySelector('.tech-stack').innerHTML;
+                document.getElementById('modal-links').innerHTML = card.querySelector('.project-links').innerHTML;
+
+                var counter = document.getElementById('modal-counter');
+                if (counter) counter.textContent = (currentModalIndex + 1) + ' / ' + carousel3DState.totalCards;
+
+                infoOverlay.classList.remove('info-transitioning');
+            }, 250);
+
+            // 7. Cleanup after animation completes
+            setTimeout(function() {
+                prevImg.className = 'modal-bg-image modal-img-outgoing';
+                prevImg.src = '';
+                mainImg.className = 'modal-bg-image';
+                isModalTransitioning = false;
+            }, 600);
         }
 
         function closeProjectModal() {
