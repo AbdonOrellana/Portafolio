@@ -858,6 +858,8 @@
         // ============================================
         // MODAL LOGIC
         // ============================================
+        
+        let currentModalCard = null;
 
         function openProjectModal(card, event) {
             // Prevent opening if clicked on a link inside the card
@@ -865,10 +867,10 @@
                 return;
             }
             
-            const modal = document.getElementById('project-modal');
-            if (!modal) return;
-
+            currentModalCard = card;
             
+            const modal = document.getElementById('project-modal');
+            if (!modal) return;            
             // Extract data from clicked card
             const imgSrc = card.querySelector('.project-image img').getAttribute('src');
             const title = card.querySelector('.project-title').textContent;
