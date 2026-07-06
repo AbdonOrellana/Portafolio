@@ -2006,6 +2006,8 @@ html {
 
 .modal-img-outgoing {
     z-index: 2;
+    opacity: 0; /* Hidden by default when not animating */
+    pointer-events: none;
 }
 
 /* Base image (incoming) */
