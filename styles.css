@@ -1651,7 +1651,7 @@ html {
 
 .carousel-3d-scene {
     width: 100%;
-    height: 520px;
+    height: 650px;
     perspective: 1200px;
     overflow: visible;
     display: flex;
@@ -1661,7 +1661,7 @@ html {
 
 .carousel-3d-ring {
     width: 420px;
-    height: 480px;
+    height: 600px;
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -1828,7 +1828,7 @@ html {
 /* Responsive */
 @media (max-width: 768px) {
     .carousel-3d-scene {
-        height: 480px;
+        height: 620px;
         perspective: 900px;
     }
     .carousel-3d-ring, .carousel-3d-card { width: 300px; }
@@ -1840,7 +1840,7 @@ html {
 
 @media (max-width: 480px) {
     .carousel-3d-ring, .carousel-3d-card { width: 260px; }
-    .carousel-3d-scene { height: 460px; perspective: 700px; }
+    .carousel-3d-scene { height: 620px; perspective: 700px; }
 }
 
 /* ============================================ */
