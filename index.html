@@ -3,13 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sebastián Orellana - Desarrollador Full Stack</title>
+    <title>Sebastián Orellana - Desarrollador Full Stack | Python, Django, React</title>
+    <meta name="description" content="Portafolio de Sebastián Orellana. Desarrollador Full Stack especializado en automatización de procesos y modernización de sistemas con Python, Django y React.">
+    <meta name="keywords" content="desarrollador full stack, python, django, react, automatización, modernización, portafolio">
+    <meta name="author" content="Sebastián Orellana">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Sebastián Orellana - Desarrollador Full Stack">
+    <meta property="og:description" content="Desarrollo plataformas web que reemplazan procesos manuales e ineficientes — con Python, Django y React.">
+    <meta property="og:image" content="Media/Mia Persona.jpeg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sebastián Orellana - Desarrollador Full Stack">
+    <meta name="twitter:description" content="Desarrollo plataformas web que reemplazan procesos manuales e ineficientes — con Python, Django y React.">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Fonts: Inter (body) + Space Grotesk (headings) + JetBrains Mono (code) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <header id="main-header">
         <nav class="container">
             <div class="logo">Sebastián Orellana</div>
             <ul class="nav-links">
@@ -19,24 +43,39 @@
                 <li><a href="#proyectos">Proyectos</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
-            <div class="mobile-menu-btn">
+            <button class="mobile-menu-btn" aria-label="Abrir menú de navegación">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </nav>
     </header>
 
     <main>
+        <!-- ====== HERO SECTION ====== -->
         <section id="inicio" class="hero">
+            <canvas id="particles-canvas"></canvas>
             <div class="container">
                 <div class="hero-content">
                     <div class="hero-text">
-                        <h1 class="hero-title">Desarrollador Full Stack</h1>
-                        <p class="hero-subtitle">Creando soluciones digitales innovadoras con Django, React y tecnologías modernas</p>
+                        <div class="hero-badge">
+                            <span class="pulse-dot"></span>
+                            Disponible para nuevos proyectos
+                        </div>
+                        <h1 class="hero-title">
+                            Modernizo sistemas.<br>
+                            <span class="gradient-text">Automatizo procesos.</span>
+                        </h1>
+                        <h2 class="hero-subtitle">Desarrollo plataformas web que reemplazan procesos manuales e ineficientes — con Python, Django y React.</h2>
                         <div class="hero-actions">
-                            <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
-                            <a href="#contacto" class="btn btn-secondary">Contactar</a>
+                            <a href="#proyectos" class="btn btn-primary">
+                                <i class="fas fa-rocket"></i>
+                                Ver Proyectos
+                            </a>
+                            <a href="#contacto" class="btn btn-secondary">
+                                <i class="fas fa-paper-plane"></i>
+                                Contactar
+                            </a>
                         </div>
                     </div>
                     <div class="hero-visual">
@@ -47,12 +86,7 @@
                                 <span class="dot green"></span>
                             </div>
                             <div class="window-content">
-                                <pre><code>const developer = {
-    nombre: 'Sebastián Orellana',
-    profesion: 'Full Stack Developer',
-    habilidades: ['Django', 'React', 'Python', 'TypeScript'],
-    pasion: 'Construyendo aplicaciones web increíbles'
-};</code></pre>
+                                <pre><code id="typed-code"></code></pre>
                             </div>
                         </div>
                     </div>
@@ -60,65 +94,70 @@
             </div>
         </section>
 
+        <!-- ====== ABOUT SECTION ====== -->
         <section id="sobre-mi" class="about">
             <div class="container">
                 <h2 class="section-title">Sobre Mí</h2>
                 <div class="about-content">
                     <div class="about-text">
-                        <p>Soy un desarrollador Full Stack apasionado por crear aplicaciones web robustas y escalables. Me especializo en el desarrollo backend con Django y frontend con React, combinando ambas tecnologías para crear experiencias de usuario excepcionales.</p>
-                        <p>Con experiencia en proyectos empresariales complejos, he desarrollado sistemas de gestión integral que incluyen autenticación, bases de datos relacionales, APIs RESTful y interfaces de usuario modernas.</p>
+                        <p>Me siento directamente con las jefaturas para entender sus dolores operativos reales. A partir de ahí, diseño y desarrollo plataformas web que eliminan planillas manuales, reducen tiempos de gestión y centralizan información crítica del negocio.</p>
+                        <p>Mi trabajo consiste en reemplazar sistemas legados e ineficientes por soluciones web rápidas, construidas con Django y React. Cuando el proyecto lo requiere, aprendo de forma autónoma herramientas del negocio —como software de ingeniería vial o plataformas GIS— para entregar soluciones que realmente resuelvan el problema de fondo.</p>
+                        <p>Recientemente fui reconocido como <strong>Empleado del Mes</strong> por mi proactividad al identificar y resolver cuellos de botella operativos antes de que se convirtieran en problemas mayores.</p>
                         <div class="stats">
                             <div class="stat">
-                                <span class="stat-number">3+</span>
-                                <span class="stat-label">Años de Experiencia</span>
+                                <span class="stat-number" data-target="1" data-prefix="+">+1</span>
+                                <span class="stat-label">Año de Experiencia</span>
                             </div>
                             <div class="stat">
-                                <span class="stat-number">10+</span>
-                                <span class="stat-label">Proyectos Completados</span>
+                                <span class="stat-number" data-target="4" data-suffix="+">4+</span>
+                                <span class="stat-label">Plataformas Empresariales</span>
                             </div>
                             <div class="stat">
-                                <span class="stat-number">100%</span>
-                                <span class="stat-label">Compromiso</span>
+                                <span class="stat-number" data-target="100" data-suffix="%">100%</span>
+                                <span class="stat-label">Enfocado en Automatización</span>
                             </div>
                         </div>
                     </div>
                     <div class="about-image">
-                        <div class="profile-placeholder">
-                            <i class="fas fa-user"></i>
-                        </div>
+                        <img src="Media/Mia Persona.jpeg" alt="Sebastián Orellana - Desarrollador Full Stack" class="profile-photo" />
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- ====== SKILLS SECTION ====== -->
         <section id="habilidades" class="skills">
             <div class="container">
                 <h2 class="section-title">Habilidades Técnicas</h2>
                 <div class="skills-grid">
                     <div class="skill-category">
-                        <h3>Backend Development</h3>
+                        <h3>Backend & Datos</h3>
                         <div class="skill-items">
                             <div class="skill-item">
                                 <i class="fab fa-python"></i>
                                 <span>Python</span>
                             </div>
                             <div class="skill-item">
-                                <i class="fab fa-django"></i>
+                                <i class="fas fa-fire"></i>
                                 <span>Django</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-flask"></i>
+                                <span>Flask</span>
                             </div>
                             <div class="skill-item">
                                 <i class="fas fa-database"></i>
                                 <span>PostgreSQL</span>
                             </div>
                             <div class="skill-item">
-                                <i class="fas fa-server"></i>
-                                <span>REST APIs</span>
+                                <i class="fas fa-table"></i>
+                                <span>Pandas</span>
                             </div>
                         </div>
                     </div>
                     
                     <div class="skill-category">
-                        <h3>Frontend Development</h3>
+                        <h3>Frontend</h3>
                         <div class="skill-items">
                             <div class="skill-item">
                                 <i class="fab fa-react"></i>
@@ -133,30 +172,44 @@
                                 <span>HTML5</span>
                             </div>
                             <div class="skill-item">
-                                <i class="fab fa-css3-alt"></i>
-                                <span>CSS3</span>
+                                <i class="fab fa-bootstrap"></i>
+                                <span>Bootstrap</span>
                             </div>
                         </div>
                     </div>
                     
                     <div class="skill-category">
-                        <h3>Herramientas & DevOps</h3>
+                        <h3>Infraestructura</h3>
                         <div class="skill-items">
+                            <div class="skill-item">
+                                <i class="fas fa-server"></i>
+                                <span>Nginx</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-cogs"></i>
+                                <span>Waitress</span>
+                            </div>
                             <div class="skill-item">
                                 <i class="fab fa-git-alt"></i>
                                 <span>Git</span>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Especialidad / Negocio</h3>
+                        <div class="skill-items">
                             <div class="skill-item">
-                                <i class="fab fa-docker"></i>
-                                <span>Docker</span>
+                                <i class="fas fa-robot"></i>
+                                <span>Automatización</span>
                             </div>
                             <div class="skill-item">
-                                <i class="fab fa-aws"></i>
-                                <span>AWS</span>
+                                <i class="fas fa-globe-americas"></i>
+                                <span>ArcGIS Pro</span>
                             </div>
                             <div class="skill-item">
-                                <i class="fas fa-code-branch"></i>
-                                <span>CI/CD</span>
+                                <i class="fas fa-road"></i>
+                                <span>RoadEng</span>
                             </div>
                         </div>
                     </div>
@@ -164,9 +217,89 @@
             </div>
         </section>
 
+        <!-- ====== PROJECTS SECTION (Professional) ====== -->
         <section id="proyectos" class="projects">
             <div class="container">
                 <h2 class="section-title">Proyectos Destacados</h2>
+                
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="Media/Sistema-Liquidacion.png" alt="Sistema de Liquidación y Reportes" />
+                        </div>
+                        <div class="project-header">
+                            <div class="project-links">
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Sistema de Liquidación y Reportes</h3>
+                            <p class="project-description">
+                                Aplicación web full-stack diseñada para reemplazar un sistema legado ineficiente. Optimiza drásticamente la velocidad de procesamiento de datos operacionales y la exportación de reportes críticos para la toma de decisiones.
+                            </p>
+                            
+                            <div class="tech-stack">
+                                <span class="tech-tag">Django</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">Pandas</span>
+                                <span class="tech-tag">Bootstrap</span>
+                                <span class="tech-tag">Nginx</span>
+                            </div>
+
+                            <div class="project-features">
+                                <h4>Características principales:</h4>
+                                <ul>
+                                    <li>Procesamiento masivo de datos a alta velocidad</li>
+                                    <li>Generación y exportación automatizada de archivos Excel avanzados</li>
+                                    <li>Interfaz responsiva con selectores de fecha dinámicos</li>
+                                    <li>Despliegue robusto en entorno de producción local (On-Premise)</li>
+                                    <li>Desarrollado en base al levantamiento de requerimientos con jefaturas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="Media/SIstema-Tickets.png" alt="Sistema de Gestión de Tickets" />
+                        </div>
+                        <div class="project-header">
+                            <div class="project-links">
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Sistema de Gestión de Tickets</h3>
+                            <p class="project-description">
+                                Plataforma interna desarrollada para centralizar, priorizar y agilizar el seguimiento de requerimientos. Diseñada bajo un enfoque de mejora continua para facilitar el flujo de trabajo entre los distintos departamentos de la empresa.
+                            </p>
+                            
+                            <div class="tech-stack">
+                                <span class="tech-tag">Flask</span>
+                                <span class="tech-tag">Django</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">HTML/CSS</span>
+                                <span class="tech-tag">UI/UX</span>
+                            </div>
+
+                            <div class="project-features">
+                                <h4>Características principales:</h4>
+                                <ul>
+                                    <li>Creación, asignación y seguimiento de requerimientos en tiempo real</li>
+                                    <li>Interfaz de usuario minimalista, intuitiva y fácil de operar</li>
+                                    <li>Adaptación de módulos según el feedback directo de los usuarios</li>
+                                    <li>Gestión de estados y prioridades de resolución</li>
+                                    <li>Optimización del flujo de comunicación interna</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== PROJECTS SECTION (University) ====== -->
+        <section id="proyectos-universitarios" class="projects">
+            <div class="container">
+                <h2 class="section-title">Proyectos Universitarios</h2>
                 
                 <div class="projects-grid">
                     <div class="project-card">
@@ -178,7 +311,7 @@
                                 <a href="https://youtu.be/3IIMdkfkkag" class="project-link" title="Ver Demo" target="_blank">
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>
-                                <a href="https://github.com/koaquinn/tailpet-project" class="project-link" title="Ver Código">
+                                <a href="https://github.com/koaquinn/tailpet-project" class="project-link" title="Ver Código" target="_blank">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </div>
@@ -219,7 +352,7 @@
                                 <a href="https://youtu.be/7XYvJiJmjvY" class="project-link" title="Ver Demo" target="_blank">
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>
-                                <a href="https://github.com/AbdonOrellana/BIKEHUB" class="project-link" title="Ver Código">
+                                <a href="https://github.com/AbdonOrellana/BIKEHUB" class="project-link" title="Ver Código" target="_blank">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </div>
@@ -254,6 +387,7 @@
             </div>
         </section>
 
+        <!-- ====== CONTACT SECTION ====== -->
         <section id="contacto" class="contact">
             <div class="container">
                 <h2 class="section-title">Contacto</h2>
@@ -316,7 +450,9 @@
     </footer>
 
     <script>
-        // Smooth scrolling
+        // ============================================
+        // SMOOTH SCROLLING
+        // ============================================
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -326,11 +462,16 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.classList.remove('active');
                 }
             });
         });
 
-        // Mobile menu toggle
+        // ============================================
+        // MOBILE MENU TOGGLE
+        // ============================================
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
         
@@ -339,10 +480,51 @@
             mobileMenuBtn.classList.toggle('active');
         });
 
-        // Intersection Observer para animaciones
+        // ============================================
+        // HEADER SCROLL EFFECT
+        // ============================================
+        const header = document.getElementById('main-header');
+        let lastScrollY = 0;
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            lastScrollY = window.scrollY;
+        });
+
+        // ============================================
+        // ACTIVE NAV LINK HIGHLIGHT
+        // ============================================
+        const sections = document.querySelectorAll('section[id]');
+        const navLinksAll = document.querySelectorAll('.nav-links a');
+
+        function highlightNav() {
+            const scrollPos = window.scrollY + 120;
+            sections.forEach(section => {
+                const top = section.offsetTop;
+                const height = section.offsetHeight;
+                const id = section.getAttribute('id');
+                if (scrollPos >= top && scrollPos < top + height) {
+                    navLinksAll.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+        window.addEventListener('scroll', highlightNav);
+
+        // ============================================
+        // INTERSECTION OBSERVER - SCROLL ANIMATIONS
+        // ============================================
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            rootMargin: '0px 0px -60px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -353,35 +535,218 @@
             });
         }, observerOptions);
 
-        // Observar elementos para animaciones
-        document.querySelectorAll('.section-title, .project-card, .skill-category, .contact-method').forEach(element => {
-            observer.observe(element);
+        document.querySelectorAll('.section-title, .project-card, .skill-category, .contact-method, .stat, .about-text, .about-image').forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
         });
 
-        // Efecto de typing para el título principal
-        function typeWriter(element, text, speed = 100) {
-            let i = 0;
-            element.innerHTML = '';
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
+        // ============================================
+        // ANIMATED COUNTERS
+        // ============================================
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            const prefix = element.getAttribute('data-prefix') || '';
+            const suffix = element.getAttribute('data-suffix') || '';
+            const duration = 1500;
+            const startTime = performance.now();
+
+            function updateCounter(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                // Ease out cubic
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const current = Math.round(eased * target);
+                element.textContent = prefix + current + suffix;
+
+                if (progress < 1) {
+                    requestAnimationFrame(updateCounter);
                 }
             }
-            type();
+            requestAnimationFrame(updateCounter);
         }
 
-        // Iniciar efecto de typing cuando la página carga
-        window.addEventListener('load', () => {
-            const titleElement = document.querySelector('.hero-title');
-            if (titleElement) {
-                const originalText = titleElement.textContent;
-                setTimeout(() => {
-                    typeWriter(titleElement, originalText, 80);
-                }, 500);
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.stat-number[data-target]');
+                    counters.forEach(counter => animateCounter(counter));
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        const statsContainer = document.querySelector('.stats');
+        if (statsContainer) counterObserver.observe(statsContainer);
+
+        // ============================================
+        // CODE TYPING ANIMATION
+        // ============================================
+        const codeLines = [
+            '<span class="code-keyword">const</span> <span class="code-property">developer</span> <span class="code-bracket">=</span> <span class="code-bracket">{</span>',
+            '    <span class="code-property">nombre</span>: <span class="code-string">\'Sebastián Orellana\'</span>,',
+            '    <span class="code-property">rol</span>: <span class="code-string">\'Full Stack Developer\'</span>,',
+            '    <span class="code-property">enfoque</span>: <span class="code-string">\'Automatización & Modernización\'</span>,',
+            '    <span class="code-property">stack</span>: <span class="code-bracket">[</span><span class="code-string">\'Python\'</span>, <span class="code-string">\'Django\'</span>, <span class="code-string">\'React\'</span>, <span class="code-string">\'PostgreSQL\'</span><span class="code-bracket">]</span>,',
+            '    <span class="code-property">especialidad</span>: <span class="code-string">\'ArcGIS Pro & Sistemas GIS\'</span>,',
+            '    <span class="code-property">sistemas_en_produccion</span>: <span class="code-number">4</span>',
+            '<span class="code-bracket">};</span>'
+        ];
+
+        function typeCode() {
+            const codeElement = document.getElementById('typed-code');
+            if (!codeElement) return;
+
+            let lineIndex = 0;
+            let charIndex = 0;
+            let currentLine = '';
+            let fullHTML = '';
+
+            function getPlainText(html) {
+                const temp = document.createElement('div');
+                temp.innerHTML = html;
+                return temp.textContent || '';
             }
-        });
+
+            function type() {
+                if (lineIndex >= codeLines.length) return;
+
+                const plainLine = getPlainText(codeLines[lineIndex]);
+
+                if (charIndex <= plainLine.length) {
+                    // Build partial plain text
+                    const partialPlain = plainLine.substring(0, charIndex);
+                    // Show completed lines + current typing line (show full HTML for completed)
+                    let display = '';
+                    for (let i = 0; i < lineIndex; i++) {
+                        display += codeLines[i] + '\n';
+                    }
+                    display += partialPlain + '<span style="animation: pulse 1s infinite; color: var(--accent-secondary);">|</span>';
+                    codeElement.innerHTML = display;
+                    charIndex++;
+                    setTimeout(type, 35 + Math.random() * 30);
+                } else {
+                    // Line complete, show with full HTML
+                    fullHTML += codeLines[lineIndex] + '\n';
+                    lineIndex++;
+                    charIndex = 0;
+                    setTimeout(type, 200);
+                }
+            }
+
+            // Start after a brief delay
+            setTimeout(type, 800);
+        }
+
+        window.addEventListener('load', typeCode);
+
+        // ============================================
+        // PARTICLE SYSTEM (lightweight canvas)
+        // ============================================
+        function initParticles() {
+            const canvas = document.getElementById('particles-canvas');
+            if (!canvas) return;
+
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            const maxParticles = 40;
+
+            function resize() {
+                const hero = canvas.parentElement;
+                canvas.width = hero.offsetWidth;
+                canvas.height = hero.offsetHeight;
+            }
+
+            function createParticle() {
+                return {
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 0.5,
+                    speedX: (Math.random() - 0.5) * 0.4,
+                    speedY: (Math.random() - 0.5) * 0.4,
+                    opacity: Math.random() * 0.4 + 0.1
+                };
+            }
+
+            function init() {
+                resize();
+                particles = [];
+                for (let i = 0; i < maxParticles; i++) {
+                    particles.push(createParticle());
+                }
+            }
+
+            function drawParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                particles.forEach(p => {
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(99, 102, 241, ${p.opacity})`;
+                    ctx.fill();
+
+                    p.x += p.speedX;
+                    p.y += p.speedY;
+
+                    // Wrap around edges
+                    if (p.x < 0) p.x = canvas.width;
+                    if (p.x > canvas.width) p.x = 0;
+                    if (p.y < 0) p.y = canvas.height;
+                    if (p.y > canvas.height) p.y = 0;
+                });
+
+                // Draw connections
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+
+                        if (dist < 150) {
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = `rgba(99, 102, 241, ${0.06 * (1 - dist / 150)})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                requestAnimationFrame(drawParticles);
+            }
+
+            init();
+            drawParticles();
+
+            window.addEventListener('resize', () => {
+                resize();
+            });
+        }
+
+        window.addEventListener('load', initParticles);
+
+        // ============================================
+        // TILT EFFECT ON PROJECT CARDS (Desktop only)
+        // ============================================
+        if (window.matchMedia('(hover: hover)').matches) {
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = (y - centerY) / 25;
+                    const rotateY = (centerX - x) / 25;
+
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+                });
+            });
+        }
     </script>
 </body>
 </html>
