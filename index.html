@@ -522,6 +522,9 @@
         </button>
         <div class="modal-counter" id="modal-counter">1 / 5</div>
         <div class="modal-content-wrapper">
+            <!-- Fondo desenfocado dinámico -->
+            <img id="modal-blur-bg" src="" alt="" class="modal-blur-bg" />
+
             <img id="modal-image" src="" alt="Proyecto" class="modal-bg-image" />
             <img id="modal-image-prev" src="" alt="" class="modal-bg-image modal-img-outgoing" />
             <div class="modal-info-overlay">
@@ -999,6 +1002,7 @@
             var mainImg = document.getElementById('modal-image');
             mainImg.src = imgSrc;
             mainImg.className = 'modal-bg-image';
+            document.getElementById('modal-blur-bg').src = imgSrc;
 
             document.getElementById('modal-title').textContent = title;
             document.getElementById('modal-desc').textContent = desc;
@@ -1048,6 +1052,7 @@
             // 5. Load new data onto the main image (hidden initially)
             var newSrc = card.querySelector('.project-image img').getAttribute('src');
             mainImg.src = newSrc;
+            document.getElementById('modal-blur-bg').src = newSrc;
 
             // Apply entrance animation
             if (direction > 0) {
