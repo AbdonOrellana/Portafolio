@@ -2019,10 +2019,10 @@ html {
 }
 
 .modal-bg-image {
-    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                filter 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    will-change: transform, opacity, filter;
+    transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                opacity 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                filter 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform, opacity;
 }
 
 .modal-img-outgoing {
@@ -2038,19 +2038,19 @@ html {
 
 /* Animations */
 .enter-from-right {
-    animation: slideInRight 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation: slideInRight 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 .enter-from-left {
-    animation: slideInLeft 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation: slideInLeft 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 .exit-to-left {
-    animation: slideOutLeft 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation: slideOutLeft 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 .exit-to-right {
-    animation: slideOutRight 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation: slideOutRight 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 .info-transitioning {
@@ -2061,27 +2061,23 @@ html {
 
 @keyframes slideInRight {
     0% {
-        transform: scale(1.1) translateX(100px);
+        transform: scale(1.05) translateX(80px);
         opacity: 0;
-        filter: blur(10px);
     }
     100% {
         transform: scale(1) translateX(0);
         opacity: 1;
-        filter: blur(0);
     }
 }
 
 @keyframes slideInLeft {
     0% {
-        transform: scale(1.1) translateX(-100px);
+        transform: scale(1.05) translateX(-80px);
         opacity: 0;
-        filter: blur(10px);
     }
     100% {
         transform: scale(1) translateX(0);
         opacity: 1;
-        filter: blur(0);
     }
 }
 
@@ -2089,12 +2085,10 @@ html {
     0% {
         transform: scale(1) translateX(0);
         opacity: 1;
-        filter: blur(0);
     }
     100% {
-        transform: scale(0.9) translateX(-150px) rotateY(-10deg);
+        transform: scale(0.95) translateX(-100px);
         opacity: 0;
-        filter: blur(15px);
     }
 }
 
@@ -2102,11 +2096,9 @@ html {
     0% {
         transform: scale(1) translateX(0);
         opacity: 1;
-        filter: blur(0);
     }
     100% {
-        transform: scale(0.9) translateX(150px) rotateY(10deg);
+        transform: scale(0.95) translateX(100px);
         opacity: 0;
-        filter: blur(15px);
     }
 }
