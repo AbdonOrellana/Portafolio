@@ -104,7 +104,7 @@
                         </div>
                     </div>
                 </div>
-                </div>
+            </div>
             </div>
         </section>
 
@@ -144,7 +144,7 @@
                             class="profile-photo" />
                     </div>
                 </div>
-                </div>
+            </div>
             </div>
         </section>
 
@@ -237,7 +237,7 @@
                         </div>
                     </div>
                 </div>
-                </div>
+            </div>
             </div>
         </section>
 
@@ -269,9 +269,13 @@
                                     <h3 class="project-title">Generador IRF - App Móvil de Terreno</h3>
                                     <p class="project-description">
                                         Aplicación móvil diseñada para la digitalización de procesos en terreno que
-                                        anteriormente se realizaban a lápiz y papel. Desplegada en formato APK para tablets y
-                                        celulares, optimizando la recolección de datos y facilitando el trabajo del equipo
-                                        operativo.<br><br><em>*Nota: La captura se tomó desde un navegador web con fines de presentación visual, pero el sistema es una aplicación desarrollada íntegramente para dispositivos móviles (celulares y tablets).</em>
+                                        anteriormente se realizaban a lápiz y papel. Desplegada en formato APK para
+                                        tablets y
+                                        celulares, optimizando la recolección de datos y facilitando el trabajo del
+                                        equipo
+                                        operativo.<br><br><em>*Nota: La captura se tomó desde un navegador web con fines
+                                            de presentación visual, pero el sistema es una aplicación desarrollada
+                                            íntegramente para dispositivos móviles (celulares y tablets).</em>
                                     </p>
                                     <div class="tech-stack">
                                         <span class="tech-tag">React Native</span>
@@ -302,7 +306,8 @@
                                 <div class="project-content">
                                     <h3 class="project-title">Sistema de Liquidación y Reportes</h3>
                                     <p class="project-description">
-                                        Aplicación web full-stack diseñada para reemplazar un sistema legado ineficiente.
+                                        Aplicación web full-stack diseñada para reemplazar un sistema legado
+                                        ineficiente.
                                         Optimiza drásticamente la velocidad de procesamiento de datos operacionales y la
                                         exportación de reportes críticos para la toma de decisiones.
                                     </p>
@@ -320,7 +325,8 @@
                                             <li>Generación y exportación automatizada de archivos Excel avanzados</li>
                                             <li>Interfaz responsiva con selectores de fecha dinámicos</li>
                                             <li>Despliegue robusto en entorno de producción local (On-Premise)</li>
-                                            <li>Desarrollado en base al levantamiento de requerimientos con jefaturas</li>
+                                            <li>Desarrollado en base al levantamiento de requerimientos con jefaturas
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -337,8 +343,10 @@
                                 <div class="project-content">
                                     <h3 class="project-title">Sistema de Gestión de Tickets</h3>
                                     <p class="project-description">
-                                        Plataforma interna desarrollada para centralizar, priorizar y agilizar el seguimiento de
-                                        requerimientos. Diseñada bajo un enfoque de mejora continua para facilitar el flujo de
+                                        Plataforma interna desarrollada para centralizar, priorizar y agilizar el
+                                        seguimiento de
+                                        requerimientos. Diseñada bajo un enfoque de mejora continua para facilitar el
+                                        flujo de
                                         trabajo entre los distintos departamentos de la empresa.
                                     </p>
                                     <div class="tech-stack">
@@ -381,8 +389,10 @@
                                 <div class="project-content">
                                     <h3 class="project-title">TailPet - Sistema de Gestión Veterinaria</h3>
                                     <p class="project-description">
-                                        Sistema web integral para la administración de clínicas veterinarias que centraliza la
-                                        gestión de pacientes, clientes, historiales médicos, citas, inventario y facturación.
+                                        Sistema web integral para la administración de clínicas veterinarias que
+                                        centraliza la
+                                        gestión de pacientes, clientes, historiales médicos, citas, inventario y
+                                        facturación.
                                     </p>
                                     <div class="tech-stack">
                                         <span class="tech-tag">Django</span>
@@ -424,7 +434,8 @@
                                 <div class="project-content">
                                     <h3 class="project-title">BikeHub - Sistema de Gestión de Bicicletas</h3>
                                     <p class="project-description">
-                                        Sistema web completo para la gestión de ventas, arriendos y reparaciones de bicicletas
+                                        Sistema web completo para la gestión de ventas, arriendos y reparaciones de
+                                        bicicletas
                                         con catálogo de productos, carrito de compras y sistema de pagos integrado.
                                     </p>
                                     <div class="tech-stack">
@@ -503,7 +514,7 @@
                         </a>
                     </div>
                 </div>
-                </div>
+            </div>
             </div>
         </section>
     </main>
@@ -513,7 +524,7 @@
         <button class="modal-close-btn" aria-label="Cerrar modal" onclick="closeProjectModal()">
             <i class="fas fa-times"></i>
         </button>
-        
+
         <button class="modal-nav-btn modal-prev-btn" aria-label="Anterior" onclick="navigateModal(-1, event)">
             <i class="fas fa-chevron-left"></i>
         </button>
@@ -931,18 +942,18 @@
             carousel3DState.currentIndex += direction;
             updateCarousel3D();
 
-            setTimeout(function() { carousel3DState.isAnimating = false; }, 600);
+            setTimeout(function () { carousel3DState.isAnimating = false; }, 600);
         }
 
         function goToCard3D(index) {
             const n = carousel3DState.totalCards;
             const currentNormalized = ((carousel3DState.currentIndex % n) + n) % n;
             let diff = index - currentNormalized;
-            
+
             // Encuentra el camino más corto
             if (diff > n / 2) diff -= n;
             if (diff < -n / 2) diff += n;
-            
+
             carousel3DState.currentIndex += diff;
             updateCarousel3D();
         }
@@ -955,8 +966,8 @@
                 const dot = document.createElement('button');
                 dot.className = 'carousel-3d-dot' + (i === 0 ? ' active' : '');
                 dot.setAttribute('aria-label', 'Ir al proyecto ' + (i + 1));
-                dot.addEventListener('click', (function(idx) {
-                    return function() { goToCard3D(idx); };
+                dot.addEventListener('click', (function (idx) {
+                    return function () { goToCard3D(idx); };
                 })(i));
                 container.appendChild(dot);
             }
@@ -967,7 +978,7 @@
         window.addEventListener('resize', initCarousel3D);
 
         // Keyboard support
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             var modal = document.getElementById('project-modal');
             var modalActive = modal && modal.classList.contains('active');
 
@@ -1062,7 +1073,7 @@
             }
 
             // 6. Update text data after a short delay (synced with image transition)
-            setTimeout(function() {
+            setTimeout(function () {
                 document.getElementById('modal-title').textContent = card.querySelector('.project-title').textContent;
                 document.getElementById('modal-desc').textContent = card.querySelector('.project-description').textContent;
                 document.getElementById('modal-tech').innerHTML = card.querySelector('.tech-stack').innerHTML;
@@ -1075,12 +1086,12 @@
             }, 250);
 
             // 7. Cleanup after animation completes
-            setTimeout(function() {
+            setTimeout(function () {
                 prevImg.className = 'modal-bg-image modal-img-outgoing';
                 prevImg.src = '';
                 mainImg.className = 'modal-bg-image';
                 isModalTransitioning = false;
-            }, 350);
+            }, 450);
         }
 
         function closeProjectModal() {
@@ -1090,10 +1101,10 @@
             document.body.style.overflow = '';
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             var modal = document.getElementById('project-modal');
             if (modal) {
-                modal.addEventListener('click', function(e) {
+                modal.addEventListener('click', function (e) {
                     if (e.target === modal) closeProjectModal();
                 });
             }

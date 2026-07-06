@@ -2019,9 +2019,9 @@ html {
 }
 
 .modal-bg-image {
-    transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                opacity 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                filter 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                opacity 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                filter 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     will-change: transform, opacity;
 }
 
@@ -2038,19 +2038,19 @@ html {
 
 /* Animations */
 .enter-from-right {
-    animation: slideInRight 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation: slideInRight 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 .enter-from-left {
-    animation: slideInLeft 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation: slideInLeft 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 .exit-to-left {
-    animation: slideOutLeft 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation: slideOutLeft 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 .exit-to-right {
-    animation: slideOutRight 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation: slideOutRight 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 .info-transitioning {
