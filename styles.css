@@ -1639,77 +1639,206 @@ html {
 }
 
 /* ============================================ */
-/* CAROUSEL STYLES */
+/* 3D CYLINDRICAL CAROUSEL                      */
 /* ============================================ */
-.carousel-container {
+.carousel-3d-viewport {
     position: relative;
     width: 100%;
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 40px; /* Space for buttons */
+    padding: 2rem 0;
 }
 
-.carousel-track {
+.carousel-3d-scene {
+    width: 100%;
+    height: 520px;
+    perspective: 1200px;
+    overflow: visible;
     display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    gap: 2rem;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none;  /* IE and Edge */
-}
-.carousel-track::-webkit-scrollbar {
-    display: none; /* Chrome, Safari and Opera */
+    justify-content: center;
+    align-items: center;
 }
 
-/* Adjust projects grid inside carousel */
-.carousel-track.projects-grid {
-    flex-direction: row;
-    padding-bottom: 20px;
+.carousel-3d-ring {
+    width: 420px;
+    height: 480px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.carousel-track .project-card {
-    flex: 0 0 100%;
-    scroll-snap-align: center;
-    cursor: pointer; /* To indicate it opens the modal */
+.carousel-3d-card {
+    position: absolute;
+    width: 420px;
+    top: 0;
+    left: 0;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--glass-border);
+    overflow: hidden;
+    cursor: pointer;
+    backface-visibility: hidden;
+    transition: opacity 0.7s ease, filter 0.7s ease;
+    will-change: transform, opacity, filter;
 }
 
-.carousel-btn {
+.carousel-3d-card.active-card {
+    opacity: 1;
+    filter: none;
+    z-index: 10;
+    box-shadow: var(--shadow-glow-hover), var(--shadow-lg);
+    border-color: rgba(99, 102, 241, 0.4);
+}
+
+.carousel-3d-card.adjacent-card {
+    opacity: 0.45;
+    filter: blur(2px) brightness(0.55);
+    z-index: 5;
+    pointer-events: none;
+}
+
+.carousel-3d-card.far-card {
+    opacity: 0;
+    filter: blur(6px) brightness(0.3);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.carousel-3d-card .project-image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-3d-card .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    background-color: var(--bg-primary);
+    transition: transform 0.4s ease;
+}
+
+.carousel-3d-card.active-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.carousel-3d-card .project-content {
+    padding: 1.25rem;
+    text-align: center;
+}
+
+.carousel-3d-card .project-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-bright);
+    margin-bottom: 0.5rem;
+}
+
+.carousel-3d-card .project-description {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.carousel-3d-card .project-features {
+    display: none;
+}
+
+.carousel-3d-card .project-header {
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 1rem 0;
+}
+
+/* Navigation buttons */
+.carousel-3d-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     color: var(--text-bright);
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 10;
-    backdrop-filter: blur(5px);
-    transition: var(--transition);
+    z-index: 20;
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
 }
 
-.carousel-btn:hover {
+.carousel-3d-btn:hover {
     background: var(--accent-primary);
     color: white;
-    box-shadow: var(--shadow-glow);
+    box-shadow: 0 0 25px rgba(99, 102, 241, 0.5);
+    transform: translateY(-50%) scale(1.1);
 }
 
-.prev-btn { left: -10px; }
-.next-btn { right: -10px; }
+.prev-3d-btn { left: 0; }
+.next-3d-btn { right: 0; }
 
+/* Dot indicators */
+.carousel-3d-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 1.5rem;
+}
+
+.carousel-3d-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-primary);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.carousel-3d-dot.active {
+    background: var(--accent-primary);
+    box-shadow: 0 0 12px rgba(99, 102, 241, 0.6);
+    transform: scale(1.2);
+}
+
+.carousel-3d-dot:hover {
+    background: rgba(99, 102, 241, 0.5);
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-    .carousel-container { padding: 0 20px; }
-    .prev-btn { left: -5px; }
-    .next-btn { right: -5px; }
+    .carousel-3d-scene {
+        height: 480px;
+        perspective: 900px;
+    }
+    .carousel-3d-ring, .carousel-3d-card { width: 300px; }
+    .carousel-3d-card .project-image { height: 170px; }
+    .prev-3d-btn { left: -5px; }
+    .next-3d-btn { right: -5px; }
+    .carousel-3d-btn { width: 40px; height: 40px; font-size: 0.9rem; }
+}
+
+@media (max-width: 480px) {
+    .carousel-3d-ring, .carousel-3d-card { width: 260px; }
+    .carousel-3d-scene { height: 460px; perspective: 700px; }
 }
 
 /* ============================================ */
-/* FULL SCREEN MODAL STYLES */
+/* FULL SCREEN MODAL STYLES                     */
 /* ============================================ */
 .modal-overlay {
     position: fixed;
@@ -1766,7 +1895,7 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Or cover depending on preference, contain shows whole image */
+    object-fit: contain;
     object-position: center;
     background-color: #000;
 }
@@ -1831,12 +1960,12 @@ html {
     cursor: pointer;
     z-index: 10001;
     backdrop-filter: blur(5px);
-    transition: var(--transition);
+    transition: all 0.3s ease;
 }
 
 .modal-nav-btn:hover {
     background: var(--accent-primary);
-    box-shadow: var(--shadow-glow);
+    box-shadow: 0 0 25px rgba(99, 102, 241, 0.5);
 }
 
 .modal-prev-btn { left: 20px; }

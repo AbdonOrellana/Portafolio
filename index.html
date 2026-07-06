@@ -241,212 +241,217 @@
             </div>
         </section>
 
-        <!-- ====== PROJECTS SECTION (Professional) ====== -->
+        <!-- ====== PROJECTS SECTION — 3D Cylindrical Carousel ====== -->
         <section id="proyectos" class="projects">
             <div class="container">
                 <h2 class="section-title">Portafolio de Proyectos</h2>
 
-                <div class="carousel-container" id="carousel-destacados">
-                    <button class="carousel-btn prev-btn" aria-label="Anterior" onclick="moveCarousel('carousel-destacados', -1)"><i class="fas fa-chevron-left"></i></button>
-                    <button class="carousel-btn next-btn" aria-label="Siguiente" onclick="moveCarousel('carousel-destacados', 1)"><i class="fas fa-chevron-right"></i></button>
-                    <div class="carousel-track">
-                        <div class="project-card" onclick="openProjectModal(this, event)">
-                            <div class="project-image">
-                                <img src="Media/Generador-IRF.png" alt="Generador IRF - App de Terreno" />
-                        </div>
-                        <div class="project-header">
-                            <div class="project-links">
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Generador IRF - App Móvil de Terreno</h3>
-                            <p class="project-description">
-                                Aplicación móvil diseñada para la digitalización de procesos en terreno que
-                                anteriormente se realizaban a lápiz y papel. Desplegada en formato APK para tablets y
-                                celulares, optimizando la recolección de datos y facilitando el trabajo del equipo
-                                operativo.
-                            </p>
+                <div class="carousel-3d-viewport">
+                    <button class="carousel-3d-btn prev-3d-btn" aria-label="Anterior" onclick="rotateCarousel3D(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-3d-btn next-3d-btn" aria-label="Siguiente" onclick="rotateCarousel3D(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
 
-                            <div class="tech-stack">
-                                <span class="tech-tag">React Native</span>
-                                <span class="tech-tag">APK</span>
-                                <span class="tech-tag">UX/UI Móvil</span>
-                                <span class="tech-tag">Digitalización</span>
+                    <div class="carousel-3d-scene">
+                        <div class="carousel-3d-ring" id="carousel3d-ring">
+
+                            <!-- Card 1 -->
+                            <div class="carousel-3d-card" data-index="0" onclick="openProjectModal(this, event)">
+                                <div class="project-image">
+                                    <img src="Media/Generador-IRF.png" alt="Generador IRF - App de Terreno" />
+                                </div>
+                                <div class="project-header">
+                                    <div class="project-links"></div>
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-title">Generador IRF - App Móvil de Terreno</h3>
+                                    <p class="project-description">
+                                        Aplicación móvil diseñada para la digitalización de procesos en terreno que
+                                        anteriormente se realizaban a lápiz y papel. Desplegada en formato APK para tablets y
+                                        celulares, optimizando la recolección de datos y facilitando el trabajo del equipo
+                                        operativo.
+                                    </p>
+                                    <div class="tech-stack">
+                                        <span class="tech-tag">React Native</span>
+                                        <span class="tech-tag">APK</span>
+                                        <span class="tech-tag">UX/UI Móvil</span>
+                                        <span class="tech-tag">Digitalización</span>
+                                    </div>
+                                    <div class="project-features">
+                                        <h4>Características principales:</h4>
+                                        <ul>
+                                            <li>Digitalización completa de formularios físicos (IRF)</li>
+                                            <li>Generación de instalador APK para tablets y celulares</li>
+                                            <li>Interfaz táctil optimizada para trabajo ágil en terreno</li>
+                                            <li>Reducción significativa de errores y tiempos de captura</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div class="project-features">
-                                <h4>Características principales:</h4>
-                                <ul>
-                                    <li>Digitalización completa de formularios físicos (IRF)</li>
-                                    <li>Generación de instalador APK para tablets y celulares</li>
-                                    <li>Interfaz táctil optimizada para trabajo ágil en terreno</li>
-                                    <li>Reducción significativa de errores y tiempos de captura</li>
-                                </ul>
+                            <!-- Card 2 -->
+                            <div class="carousel-3d-card" data-index="1" onclick="openProjectModal(this, event)">
+                                <div class="project-image">
+                                    <img src="Media/Sistema-Liquidacion.png" alt="Sistema de Liquidación y Reportes" />
+                                </div>
+                                <div class="project-header">
+                                    <div class="project-links"></div>
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-title">Sistema de Liquidación y Reportes</h3>
+                                    <p class="project-description">
+                                        Aplicación web full-stack diseñada para reemplazar un sistema legado ineficiente.
+                                        Optimiza drásticamente la velocidad de procesamiento de datos operacionales y la
+                                        exportación de reportes críticos para la toma de decisiones.
+                                    </p>
+                                    <div class="tech-stack">
+                                        <span class="tech-tag">Django</span>
+                                        <span class="tech-tag">PostgreSQL</span>
+                                        <span class="tech-tag">Pandas</span>
+                                        <span class="tech-tag">Bootstrap</span>
+                                        <span class="tech-tag">Nginx</span>
+                                    </div>
+                                    <div class="project-features">
+                                        <h4>Características principales:</h4>
+                                        <ul>
+                                            <li>Procesamiento masivo de datos a alta velocidad</li>
+                                            <li>Generación y exportación automatizada de archivos Excel avanzados</li>
+                                            <li>Interfaz responsiva con selectores de fecha dinámicos</li>
+                                            <li>Despliegue robusto en entorno de producción local (On-Premise)</li>
+                                            <li>Desarrollado en base al levantamiento de requerimientos con jefaturas</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
+
+                            <!-- Card 3 -->
+                            <div class="carousel-3d-card" data-index="2" onclick="openProjectModal(this, event)">
+                                <div class="project-image">
+                                    <img src="Media/SIstema-Tickets.png" alt="Sistema de Gestión de Tickets" />
+                                </div>
+                                <div class="project-header">
+                                    <div class="project-links"></div>
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-title">Sistema de Gestión de Tickets</h3>
+                                    <p class="project-description">
+                                        Plataforma interna desarrollada para centralizar, priorizar y agilizar el seguimiento de
+                                        requerimientos. Diseñada bajo un enfoque de mejora continua para facilitar el flujo de
+                                        trabajo entre los distintos departamentos de la empresa.
+                                    </p>
+                                    <div class="tech-stack">
+                                        <span class="tech-tag">Flask</span>
+                                        <span class="tech-tag">Django</span>
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">HTML/CSS</span>
+                                        <span class="tech-tag">UI/UX</span>
+                                    </div>
+                                    <div class="project-features">
+                                        <h4>Características principales:</h4>
+                                        <ul>
+                                            <li>Creación, asignación y seguimiento de requerimientos en tiempo real</li>
+                                            <li>Interfaz de usuario minimalista, intuitiva y fácil de operar</li>
+                                            <li>Adaptación de módulos según el feedback directo de los usuarios</li>
+                                            <li>Gestión de estados y prioridades de resolución</li>
+                                            <li>Optimización del flujo de comunicación interna</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 4 -->
+                            <div class="carousel-3d-card" data-index="3" onclick="openProjectModal(this, event)">
+                                <div class="project-image">
+                                    <img src="Media/TailPet.png" alt="TailPet - Sistema de Gestión Veterinaria" />
+                                </div>
+                                <div class="project-header">
+                                    <div class="project-links">
+                                        <a href="https://youtu.be/3IIMdkfkkag" class="project-link" title="Ver Demo"
+                                            target="_blank">
+                                            <i class="fas fa-external-link-alt"></i>
+                                        </a>
+                                        <a href="https://github.com/koaquinn/tailpet-project" class="project-link"
+                                            title="Ver Código" target="_blank">
+                                            <i class="fab fa-github"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-title">TailPet - Sistema de Gestión Veterinaria</h3>
+                                    <p class="project-description">
+                                        Sistema web integral para la administración de clínicas veterinarias que centraliza la
+                                        gestión de pacientes, clientes, historiales médicos, citas, inventario y facturación.
+                                    </p>
+                                    <div class="tech-stack">
+                                        <span class="tech-tag">Django</span>
+                                        <span class="tech-tag">React</span>
+                                        <span class="tech-tag">TypeScript</span>
+                                        <span class="tech-tag">PostgreSQL</span>
+                                        <span class="tech-tag">JWT</span>
+                                    </div>
+                                    <div class="project-features">
+                                        <h4>Características principales:</h4>
+                                        <ul>
+                                            <li>Gestión completa de clientes y mascotas</li>
+                                            <li>Sistema de citas con calendario interactivo</li>
+                                            <li>Historiales médicos digitalizados</li>
+                                            <li>Control de inventario y facturación</li>
+                                            <li>Dashboard con reportes en tiempo real</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 5 -->
+                            <div class="carousel-3d-card" data-index="4" onclick="openProjectModal(this, event)">
+                                <div class="project-image">
+                                    <img src="Media/BikeHub.png" alt="BikeHub - Sistema de Gestión de Bicicletas" />
+                                </div>
+                                <div class="project-header">
+                                    <div class="project-links">
+                                        <a href="https://youtu.be/7XYvJiJmjvY" class="project-link" title="Ver Demo"
+                                            target="_blank">
+                                            <i class="fas fa-external-link-alt"></i>
+                                        </a>
+                                        <a href="https://github.com/AbdonOrellana/BIKEHUB" class="project-link"
+                                            title="Ver Código" target="_blank">
+                                            <i class="fab fa-github"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-title">BikeHub - Sistema de Gestión de Bicicletas</h3>
+                                    <p class="project-description">
+                                        Sistema web completo para la gestión de ventas, arriendos y reparaciones de bicicletas
+                                        con catálogo de productos, carrito de compras y sistema de pagos integrado.
+                                    </p>
+                                    <div class="tech-stack">
+                                        <span class="tech-tag">Django</span>
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">JavaScript</span>
+                                        <span class="tech-tag">Stripe</span>
+                                        <span class="tech-tag">SQLite</span>
+                                    </div>
+                                    <div class="project-features">
+                                        <h4>Características principales:</h4>
+                                        <ul>
+                                            <li>Gestión de clientes y usuarios</li>
+                                            <li>Catálogo con búsqueda avanzada</li>
+                                            <li>Carrito de compras y checkout</li>
+                                            <li>Integración con Stripe</li>
+                                            <li>Sistema de arriendos y reparaciones</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 
-                    <div class="project-card" onclick="openProjectModal(this, event)">
-                        <div class="project-image">
-                            <img src="Media/Sistema-Liquidacion.png" alt="Sistema de Liquidación y Reportes" />
-                        </div>
-                        <div class="project-header">
-                            <div class="project-links">
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Sistema de Liquidación y Reportes</h3>
-                            <p class="project-description">
-                                Aplicación web full-stack diseñada para reemplazar un sistema legado ineficiente.
-                                Optimiza drásticamente la velocidad de procesamiento de datos operacionales y la
-                                exportación de reportes críticos para la toma de decisiones.
-                            </p>
-
-                            <div class="tech-stack">
-                                <span class="tech-tag">Django</span>
-                                <span class="tech-tag">PostgreSQL</span>
-                                <span class="tech-tag">Pandas</span>
-                                <span class="tech-tag">Bootstrap</span>
-                                <span class="tech-tag">Nginx</span>
-                            </div>
-
-                            <div class="project-features">
-                                <h4>Características principales:</h4>
-                                <ul>
-                                    <li>Procesamiento masivo de datos a alta velocidad</li>
-                                    <li>Generación y exportación automatizada de archivos Excel avanzados</li>
-                                    <li>Interfaz responsiva con selectores de fecha dinámicos</li>
-                                    <li>Despliegue robusto en entorno de producción local (On-Premise)</li>
-                                    <li>Desarrollado en base al levantamiento de requerimientos con jefaturas</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card" onclick="openProjectModal(this, event)">
-                        <div class="project-image">
-                            <img src="Media/SIstema-Tickets.png" alt="Sistema de Gestión de Tickets" />
-                        </div>
-                        <div class="project-header">
-                            <div class="project-links">
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Sistema de Gestión de Tickets</h3>
-                            <p class="project-description">
-                                Plataforma interna desarrollada para centralizar, priorizar y agilizar el seguimiento de
-                                requerimientos. Diseñada bajo un enfoque de mejora continua para facilitar el flujo de
-                                trabajo entre los distintos departamentos de la empresa.
-                            </p>
-
-                            <div class="tech-stack">
-                                <span class="tech-tag">Flask</span>
-                                <span class="tech-tag">Django</span>
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">HTML/CSS</span>
-                                <span class="tech-tag">UI/UX</span>
-                            </div>
-
-                            <div class="project-features">
-                                <h4>Características principales:</h4>
-                                <ul>
-                                    <li>Creación, asignación y seguimiento de requerimientos en tiempo real</li>
-                                    <li>Interfaz de usuario minimalista, intuitiva y fácil de operar</li>
-                                    <li>Adaptación de módulos según el feedback directo de los usuarios</li>
-                                    <li>Gestión de estados y prioridades de resolución</li>
-                                    <li>Optimización del flujo de comunicación interna</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                        <div class="project-card" onclick="openProjectModal(this, event)">
-                            <div class="project-image">
-                                <img src="Media/TailPet.png" alt="TailPet - Sistema de Gestión Veterinaria" />
-                        </div>
-                        <div class="project-header">
-                            <div class="project-links">
-                                <a href="https://youtu.be/3IIMdkfkkag" class="project-link" title="Ver Demo"
-                                    target="_blank">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                                <a href="https://github.com/koaquinn/tailpet-project" class="project-link"
-                                    title="Ver Código" target="_blank">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">TailPet - Sistema de Gestión Veterinaria</h3>
-                            <p class="project-description">
-                                Sistema web integral para la administración de clínicas veterinarias que centraliza la
-                                gestión de pacientes, clientes, historiales médicos, citas, inventario y facturación.
-                            </p>
-
-                            <div class="tech-stack">
-                                <span class="tech-tag">Django</span>
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">TypeScript</span>
-                                <span class="tech-tag">PostgreSQL</span>
-                                <span class="tech-tag">JWT</span>
-                            </div>
-
-                            <div class="project-features">
-                                <h4>Características principales:</h4>
-                                <ul>
-                                    <li>Gestión completa de clientes y mascotas</li>
-                                    <li>Sistema de citas con calendario interactivo</li>
-                                    <li>Historiales médicos digitalizados</li>
-                                    <li>Control de inventario y facturación</li>
-                                    <li>Dashboard con reportes en tiempo real</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card" onclick="openProjectModal(this, event)">
-                        <div class="project-image">
-                            <img src="Media/BikeHub.png" alt="BikeHub - Sistema de Gestión de Bicicletas" />
-                        </div>
-                        <div class="project-header">
-                            <div class="project-links">
-                                <a href="https://youtu.be/7XYvJiJmjvY" class="project-link" title="Ver Demo"
-                                    target="_blank">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                                <a href="https://github.com/AbdonOrellana/BIKEHUB" class="project-link"
-                                    title="Ver Código" target="_blank">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">BikeHub - Sistema de Gestión de Bicicletas</h3>
-                            <p class="project-description">
-                                Sistema web completo para la gestión de ventas, arriendos y reparaciones de bicicletas
-                                con catálogo de productos, carrito de compras y sistema de pagos integrado.
-                            </p>
-
-                            <div class="tech-stack">
-                                <span class="tech-tag">Django</span>
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">Stripe</span>
-                                <span class="tech-tag">SQLite</span>
-                            </div>
-
-                            <div class="project-features">
-                                <h4>Características principales:</h4>
-                                <ul>
-                                    <li>Gestión de clientes y usuarios</li>
-                                    <li>Catálogo con búsqueda avanzada</li>
-                                    <li>Carrito de compras y checkout</li>
-                                    <li>Integración con Stripe</li>
-                                    <li>Sistema de arriendos y reparaciones</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    <!-- Dot indicators -->
+                    <div class="carousel-3d-dots" id="carousel3d-dots"></div>
                 </div>
             </div>
         </section>
@@ -842,94 +847,176 @@
     <!-- Carousel and Modal Logic -->
     <script>
         // ============================================
-        // CAROUSEL LOGIC
+        // 3D CYLINDRICAL CAROUSEL
         // ============================================
-        function moveCarousel(carouselId, direction) {
-            const container = document.getElementById(carouselId);
-            if (!container) return;
-            const track = container.querySelector('.carousel-track');
-            if (!track) return;
-            
-            // Scroll by width of one card + gap (approx track width)
-            const scrollAmount = track.clientWidth * direction;
-            track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        const carousel3DState = {
+            currentIndex: 0,
+            totalCards: 0,
+            anglePer: 0,
+            radius: 0,
+            ring: null,
+            cards: [],
+            isAnimating: false
+        };
+
+        function initCarousel3D() {
+            const ring = document.getElementById('carousel3d-ring');
+            if (!ring) return;
+
+            const cards = ring.querySelectorAll('.carousel-3d-card');
+            const n = cards.length;
+            if (n === 0) return;
+
+            carousel3DState.ring = ring;
+            carousel3DState.cards = Array.from(cards);
+            carousel3DState.totalCards = n;
+            carousel3DState.anglePer = 360 / n;
+
+            // Compute radius so cards don't overlap
+            const cardWidth = cards[0].offsetWidth || 420;
+            carousel3DState.radius = Math.round(cardWidth / (2 * Math.tan(Math.PI / n))) + 60;
+
+            // Position each card on the cylinder
+            cards.forEach((card, i) => {
+                const angle = carousel3DState.anglePer * i;
+                card.style.transform = 'rotateY(' + angle + 'deg) translateZ(' + carousel3DState.radius + 'px)';
+            });
+
+            ring.style.transformStyle = 'preserve-3d';
+            updateCarousel3D();
+            buildDots();
         }
+
+        function updateCarousel3D() {
+            const { ring, currentIndex, anglePer, cards, totalCards } = carousel3DState;
+            const rotation = -anglePer * currentIndex;
+
+            ring.style.transform = 'rotateY(' + rotation + 'deg)';
+
+            cards.forEach((card, i) => {
+                card.classList.remove('active-card', 'adjacent-card', 'far-card');
+
+                let diff = i - currentIndex;
+                if (diff > totalCards / 2) diff -= totalCards;
+                if (diff < -totalCards / 2) diff += totalCards;
+
+                const absDiff = Math.abs(diff);
+
+                if (absDiff === 0) {
+                    card.classList.add('active-card');
+                } else if (absDiff === 1) {
+                    card.classList.add('adjacent-card');
+                } else {
+                    card.classList.add('far-card');
+                }
+            });
+
+            const dots = document.querySelectorAll('.carousel-3d-dot');
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentIndex);
+            });
+        }
+
+        function rotateCarousel3D(direction) {
+            if (carousel3DState.isAnimating) return;
+            carousel3DState.isAnimating = true;
+
+            const n = carousel3DState.totalCards;
+            carousel3DState.currentIndex = ((carousel3DState.currentIndex + direction) % n + n) % n;
+            updateCarousel3D();
+
+            setTimeout(function() { carousel3DState.isAnimating = false; }, 600);
+        }
+
+        function goToCard3D(index) {
+            carousel3DState.currentIndex = index;
+            updateCarousel3D();
+        }
+
+        function buildDots() {
+            const container = document.getElementById('carousel3d-dots');
+            if (!container) return;
+            container.innerHTML = '';
+            for (let i = 0; i < carousel3DState.totalCards; i++) {
+                const dot = document.createElement('button');
+                dot.className = 'carousel-3d-dot' + (i === 0 ? ' active' : '');
+                dot.setAttribute('aria-label', 'Ir al proyecto ' + (i + 1));
+                dot.addEventListener('click', (function(idx) {
+                    return function() { goToCard3D(idx); };
+                })(i));
+                container.appendChild(dot);
+            }
+        }
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', initCarousel3D);
+        window.addEventListener('resize', initCarousel3D);
+
+        // Keyboard support
+        document.addEventListener('keydown', function(e) {
+            var modal = document.getElementById('project-modal');
+            var modalActive = modal && modal.classList.contains('active');
+
+            if (modalActive) {
+                if (e.key === 'ArrowLeft') navigateModal(-1, e);
+                else if (e.key === 'ArrowRight') navigateModal(1, e);
+                else if (e.key === 'Escape') closeProjectModal();
+            }
+        });
 
         // ============================================
         // MODAL LOGIC
         // ============================================
-        
-        let currentModalCard = null;
+        let currentModalIndex = 0;
 
         function openProjectModal(card, event) {
-            // Prevent opening if clicked on a link inside the card
-            if (event && event.target.closest('a')) {
-                return;
-            }
-            
-            currentModalCard = card;
-            
-            const modal = document.getElementById('project-modal');
-            if (!modal) return;            
-            // Extract data from clicked card
-            const imgSrc = card.querySelector('.project-image img').getAttribute('src');
-            const title = card.querySelector('.project-title').textContent;
-            const desc = card.querySelector('.project-description').textContent;
-            const techStackHTML = card.querySelector('.tech-stack').innerHTML;
-            const linksHTML = card.querySelector('.project-links').innerHTML;
-            
-            // Inject into modal
+            if (event && event.target.closest('a')) return;
+
+            var idx = parseInt(card.getAttribute('data-index'));
+            if (!isNaN(idx)) currentModalIndex = idx;
+
+            var modal = document.getElementById('project-modal');
+            if (!modal) return;
+
+            var imgSrc = card.querySelector('.project-image img').getAttribute('src');
+            var title = card.querySelector('.project-title').textContent;
+            var desc = card.querySelector('.project-description').textContent;
+            var techStackHTML = card.querySelector('.tech-stack').innerHTML;
+            var linksHTML = card.querySelector('.project-links').innerHTML;
+
             document.getElementById('modal-image').src = imgSrc;
             document.getElementById('modal-title').textContent = title;
             document.getElementById('modal-desc').textContent = desc;
             document.getElementById('modal-tech').innerHTML = techStackHTML;
             document.getElementById('modal-links').innerHTML = linksHTML;
-            
-            // Show modal
+
             modal.classList.add('active');
-            
-            // Prevent body scroll
             document.body.style.overflow = 'hidden';
         }
 
-
         function navigateModal(direction, event) {
-            if (event) {
-                event.stopPropagation();
-            }
-            
-            if (!currentModalCard) return;
-            
-            const allCards = Array.from(document.querySelectorAll('.carousel-track .project-card'));
-            let currentIndex = allCards.indexOf(currentModalCard);
-            
-            if (currentIndex === -1) return;
-            
-            let nextIndex = currentIndex + direction;
-            
-            // Loop around
-            if (nextIndex < 0) nextIndex = allCards.length - 1;
-            if (nextIndex >= allCards.length) nextIndex = 0;
-            
-            // Re-open with new card
-            openProjectModal(allCards[nextIndex], null);
+            if (event) event.stopPropagation();
+
+            var allCards = carousel3DState.cards;
+            if (!allCards.length) return;
+
+            var n = allCards.length;
+            currentModalIndex = ((currentModalIndex + direction) % n + n) % n;
+            openProjectModal(allCards[currentModalIndex], null);
         }
 
         function closeProjectModal() {
-            const modal = document.getElementById('project-modal');
+            var modal = document.getElementById('project-modal');
             if (!modal) return;
             modal.classList.remove('active');
             document.body.style.overflow = '';
         }
-        
-        // Close modal when clicking outside the content
-        document.addEventListener('DOMContentLoaded', () => {
-            const modal = document.getElementById('project-modal');
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var modal = document.getElementById('project-modal');
             if (modal) {
-                modal.addEventListener('click', (e) => {
-                    if (e.target === modal) {
-                        closeProjectModal();
-                    }
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) closeProjectModal();
                 });
             }
         });
