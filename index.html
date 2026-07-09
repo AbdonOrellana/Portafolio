@@ -393,7 +393,8 @@
                                         Sistema web integral para la administración de clínicas veterinarias que
                                         centraliza la
                                         gestión de pacientes, clientes, historiales médicos, citas, inventario y
-                                        facturación.<br><br><em>*Nota: Este proyecto fue desarrollado con fines académicos en la universidad hace 2 años.</em>
+                                        facturación.<br><br><em>*Nota: Este proyecto fue desarrollado con fines
+                                            académicos en la universidad hace 2 años.</em>
                                     </p>
                                     <div class="tech-stack">
                                         <span class="tech-tag">Django</span>
@@ -437,7 +438,9 @@
                                     <p class="project-description">
                                         Sistema web completo para la gestión de ventas, arriendos y reparaciones de
                                         bicicletas
-                                        con catálogo de productos, carrito de compras y sistema de pagos integrado.<br><br><em>*Nota: Este proyecto fue desarrollado con fines académicos en la universidad hace 2 años.</em>
+                                        con catálogo de productos, carrito de compras y sistema de pagos
+                                        integrado.<br><br><em>*Nota: Este proyecto fue desarrollado con fines académicos
+                                            en la universidad hace 2 años.</em>
                                     </p>
                                     <div class="tech-stack">
                                         <span class="tech-tag">Django</span>
@@ -873,7 +876,11 @@
             radius: 0,
             ring: null,
             cards: [],
-            isAnimating: false
+            isAnimating: false,
+            startX: 0,
+            currentX: 0,
+            isDragging: false,
+            autoPlayInterval: null
         };
 
         function initCarousel3D() {
@@ -887,29 +894,19 @@
             carousel3DState.ring = ring;
             carousel3DState.cards = Array.from(cards);
             carousel3DState.totalCards = n;
-            carousel3DState.anglePer = 360 / n;
-
-            // Compute radius so cards don't overlap
-            const cardWidth = cards[0].offsetWidth || 420;
-            carousel3DState.radius = Math.round(cardWidth / (2 * Math.tan(Math.PI / n))) + 60;
-
-            // Position each card on the cylinder
-            cards.forEach((card, i) => {
-                const angle = carousel3DState.anglePer * i;
-                card.style.transform = 'rotateY(' + angle + 'deg) translateZ(' + carousel3DState.radius + 'px)';
-            });
 
             ring.style.transformStyle = 'preserve-3d';
+            // Ya no rotamos el ring, rotamos individualmente cada tarjeta
+            ring.style.transform = 'none';
+
             updateCarousel3D();
             buildDots();
+            setupCarouselEvents();
+            startAutoPlay();
         }
 
         function updateCarousel3D() {
-            const { ring, currentIndex, anglePer, cards, totalCards } = carousel3DState;
-            const rotation = -anglePer * currentIndex;
-
-            ring.style.transform = 'rotateY(' + rotation + 'deg)';
-
+            const { currentIndex, cards, totalCards } = carousel3DState;
             const normalizedCurrent = ((currentIndex % totalCards) + totalCards) % totalCards;
 
             cards.forEach((card, i) => {
@@ -921,12 +918,27 @@
 
                 const absDiff = Math.abs(diff);
 
+                // Lógica Coverflow para mejor visibilidad
                 if (absDiff === 0) {
                     card.classList.add('active-card');
-                } else if (absDiff === 1) {
+                    card.style.transform = 'translateX(0) translateZ(100px) rotateY(0deg)';
+                    card.style.zIndex = 10;
+                } else if (diff === 1) {
                     card.classList.add('adjacent-card');
-                } else {
+                    card.style.transform = 'translateX(60%) translateZ(-100px) rotateY(-25deg)';
+                    card.style.zIndex = 5;
+                } else if (diff === -1) {
+                    card.classList.add('adjacent-card');
+                    card.style.transform = 'translateX(-60%) translateZ(-100px) rotateY(25deg)';
+                    card.style.zIndex = 5;
+                } else if (diff > 1) {
                     card.classList.add('far-card');
+                    card.style.transform = 'translateX(100%) translateZ(-300px) rotateY(-40deg)';
+                    card.style.zIndex = 1;
+                } else if (diff < -1) {
+                    card.classList.add('far-card');
+                    card.style.transform = 'translateX(-100%) translateZ(-300px) rotateY(40deg)';
+                    card.style.zIndex = 1;
                 }
             });
 
@@ -943,7 +955,7 @@
             carousel3DState.currentIndex += direction;
             updateCarousel3D();
 
-            setTimeout(function () { carousel3DState.isAnimating = false; }, 600);
+            setTimeout(function () { carousel3DState.isAnimating = false; }, 900);
         }
 
         function goToCard3D(index) {
@@ -971,6 +983,81 @@
                     return function () { goToCard3D(idx); };
                 })(i));
                 container.appendChild(dot);
+            }
+        }
+
+        function setupCarouselEvents() {
+            const scene = document.querySelector('.carousel-3d-scene');
+            if (!scene) return;
+
+            // Eventos de ratón
+            scene.addEventListener('mousedown', handleDragStart);
+            scene.addEventListener('mousemove', handleDragMove);
+            scene.addEventListener('mouseup', handleDragEnd);
+            scene.addEventListener('mouseleave', handleDragEnd);
+
+            // Eventos táctiles
+            scene.addEventListener('touchstart', handleDragStart, { passive: true });
+            scene.addEventListener('touchmove', handleDragMove, { passive: false });
+            scene.addEventListener('touchend', handleDragEnd);
+
+            // Pausar auto-play en hover
+            scene.addEventListener('mouseenter', stopAutoPlay);
+            scene.addEventListener('mouseleave', startAutoPlay);
+        }
+
+        function handleDragStart(e) {
+            if (e.type === 'mousedown') {
+                carousel3DState.startX = e.clientX;
+                document.querySelector('.carousel-3d-scene').style.cursor = 'grabbing';
+            } else {
+                carousel3DState.startX = e.touches[0].clientX;
+            }
+            carousel3DState.isDragging = true;
+            carousel3DState.currentX = carousel3DState.startX;
+            stopAutoPlay();
+        }
+
+        function handleDragMove(e) {
+            if (!carousel3DState.isDragging) return;
+            if (e.type === 'mousemove') {
+                carousel3DState.currentX = e.clientX;
+            } else {
+                carousel3DState.currentX = e.touches[0].clientX;
+            }
+        }
+
+        function handleDragEnd(e) {
+            if (!carousel3DState.isDragging) return;
+            carousel3DState.isDragging = false;
+
+            const scene = document.querySelector('.carousel-3d-scene');
+            if (scene) scene.style.cursor = 'grab';
+
+            const diffX = carousel3DState.startX - carousel3DState.currentX;
+            const threshold = 50; // mínima distancia para considerar un swipe
+
+            if (diffX > threshold) {
+                rotateCarousel3D(1); // Swipe izquierda -> Siguiente
+            } else if (diffX < -threshold) {
+                rotateCarousel3D(-1); // Swipe derecha -> Anterior
+            }
+            startAutoPlay();
+        }
+
+        function startAutoPlay() {
+            stopAutoPlay();
+            carousel3DState.autoPlayInterval = setInterval(() => {
+                if (!carousel3DState.isDragging && !carousel3DState.isAnimating) {
+                    rotateCarousel3D(1);
+                }
+            }, 4000);
+        }
+
+        function stopAutoPlay() {
+            if (carousel3DState.autoPlayInterval) {
+                clearInterval(carousel3DState.autoPlayInterval);
+                carousel3DState.autoPlayInterval = null;
             }
         }
 
